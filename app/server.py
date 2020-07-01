@@ -69,8 +69,8 @@ async def analyze(request):
     fname = img_data['fname']
 
     img_bytes = await (img_data['file'].read())
-    img = open_image(BytesIO(img_bytes))
-    
+    img = open_image(BytesIO(img_bytes)).resize(256) # Golden fix
+
     def show_prediction(learn,img, detect_thresh = .25, nms_thresh = .1):
         with torch.no_grad():
             batch = learn.data.one_item(img)
@@ -97,10 +97,12 @@ async def analyze(request):
     # return JSONResponse({'result': cats, 'cam': icams })
 
     show_prediction(learn,img) # need to use plt.savefig(BytesIO,format="png") to save it and perhaps use it as dataURI
-    plt.savefig(BytesIO,format="png")
+    
+    figfile = BytesIO()
+    plt.savefig(figfile,format="png")
 
-    img_bytes = BytesIO
-    res = "data:image/png;base64," + b64.b64encode(img_bytes).decode('utf-8')
+    figfile.seek(0)
+    res = "data:image/png;base64," + b64.b64encode(figfile.getvalue()).decode('utf-8')
 
     return JSONResponse({"filename": "result_"+fname, "new_img": res})
     
