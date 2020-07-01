@@ -1,0 +1,95 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <link rel='stylesheet' href='../static/style2.css'>
+        
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+        <!-- Compiled and minified JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    </head>
+
+    <body>
+        
+        <div class="outerWrapper">   
+                    
+            <div class="row">
+                <div class="col m2">
+                    <div id="card" class="card hoverable">
+
+                        <div class="card-image valign-wrapper">
+                            <img id="logo" src="../static/bacteria.png" class = "logo centered">
+                        </div>
+                        
+                        <div class="card-content">
+                            
+                            <div class="info">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero vitae doloribus ducimus atque impedit voluptates neque mollitia corporis inventore, dolorem quae sapiente, earum quisquam. Quam id minima natus repellat officiis.</p>
+                            </div>
+
+
+                            <div>
+                                <input id="fileUpload" type="file" accept="image/*"/>
+                            </div> 
+
+                            <div>
+                                <button id="analyze" onclick="analyze()">Analyze</button>
+                            </div> 
+                            
+                            
+                        </div>
+                        
+                        <div class="card-action valign-wrapper">
+                                <a href="http://www.github.com/" target="_blank">
+                                    <div class="valign-wrapper">
+                                            <img src="../static/git_cat.webp" class="git_logo" />
+                                            <p>git repo name</p>
+                                    </div>
+                                </a>
+                        </div>
+                        
+                    </div>
+                </div>
+
+                <div class = "col m10">
+                    <div id="preloader" class="progress white">
+                        <div class="indeterminate blue"></div>
+                    </div>
+                    
+                    
+                    <div class="valign-wrapper">
+                        <div class="valign-wrapper full-height">
+                            <div class="card large valign-wrapper hoverable img-preview">
+                                <div class="card-image valign-wrapper">
+                                    <img id="upload" src="../static/placeholder-image.png" class = "centered">
+                                </div>
+                            </div> 
+                        </div>
+                    
+                    
+                        <div class="valign-wrapper full-height">
+                            <div class="card large valign-wrapper hoverable img-preview">
+                                <div class="card-image valign-wrapper">
+                                    <a id="download-wrapper">
+                                        <img id="result" src="../static/placeholder-image.png" class = "centered">
+                                    </a>
+                                </div>
+                            </div> 
+                        </div>
+                    </div>
+                    
+                    
+
+                    <!-- <div class = "valign-wrapper full-height scale-in-center">
+                        <img class="sputum" src="../static/dot_grid.png"/>
+                    </div> -->
+                </div>
+            </div>
+
+        </div>
+        <script src='../static/client.js'></script>
+    </body>
+</html>

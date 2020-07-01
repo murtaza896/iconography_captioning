@@ -1,0 +1,125 @@
+body {
+    background-color: rgb(255, 255, 255);
+    /* background-image:  url("../static/dot_grid.png"), url("../static/bacteria2.jpg"); */
+    background-image:  url("../static/dot_grid.png");
+    /* background-repeat: repeat; */
+    background-size: contain;
+    /* background-blend-mode: luminosity; */
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.row { 
+    margin-bottom: 0px !important;
+    /* z-index: 2;
+    position: absolute; */
+}
+
+.progress {
+    margin: 0px !important;     
+}
+
+#preloader { 
+    display: none;
+}
+
+.row .col {
+    padding:0px !important; 
+}
+
+/* #bg { 
+    z-index: 1;
+    position: absolute;
+} */
+
+#card {
+    margin: 0px !important;
+    height: 100vh;   
+    background-color: #ffffff;
+}
+
+.card-image {
+    padding: 10px;
+    max-height: 90% !important;
+    /* object-fit: scale-down; */
+}
+
+
+.centered { 
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.logo {
+    width: 30% !important;
+}
+
+.rtt {
+    animation: rotation 2.5s infinite cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes rotation {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(359deg);
+    }
+  }
+
+  
+.git_logo {
+    width: 10% !important;
+}
+
+
+.card .card-action a {
+    text-transform: lowercase !important;
+    color: #444444 !important;
+}
+
+.valign-wrapper {
+    justify-content: center;
+}
+
+.card-action {
+    position: absolute !important;
+    bottom: 0;
+    left: 0;
+
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+
+    max-height: 100%;
+}
+
+.info {
+    margin: 0px 0px 30px 0px;
+}
+
+/* .outerWrapper { 
+    position: relative;
+    z-index: 0;
+} */
+
+#upload { 
+    max-height: inherit;
+    max-width: 100%;
+}
+
+/* #img_preview {
+    max-width: 100%;
+    max-height: 100%;
+} */
+
+.full-height {
+    height: 100vh;
+}
+
+.img-preview {
+    margin: 0.8rem !important;
+    width: 39vw;
+    /* background-color: rgb(242, 242, 246) !important; */
+}
+
