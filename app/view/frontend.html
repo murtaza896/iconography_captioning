@@ -1,12 +1,12 @@
 <!DOCTYPE HTML>
 <html>
     <head>
+        <title>Kotch AI</title>
         <meta charset='utf-8'>
         <link rel='stylesheet' href='../static/style2.css'>
-        
-
+        <link rel="shortcut icon" href="../static/favicon.ico">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <!-- Compiled and minified JavaScript -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
@@ -18,25 +18,39 @@
                     
             <div class="row">
                 <div class="col m2">
-                    <div id="card" class="card hoverable">
+                    <div id="card" class="card center-align">
 
                         <div class="card-image valign-wrapper">
-                            <img id="logo" src="../static/bacteria.png" class = "logo centered">
+                            <div class="logo-wrapper">
+                                <img id="logo" href="/" src="../static/bacteria.png" class = "logo centered">
+                            </div>
                         </div>
                         
                         <div class="card-content">
                             
                             <div class="info">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero vitae doloribus ducimus atque impedit voluptates neque mollitia corporis inventore, dolorem quae sapiente, earum quisquam. Quam id minima natus repellat officiis.</p>
+                                <h3>Kotch AI</h3>
+                                <p1>Automatic Tuberculosis Detector</p1>
                             </div>
 
 
-                            <div>
-                                <input id="fileUpload" type="file" accept="image/*"/>
+                            <div class="upload-wrapper">
+                                <!-- <input id="fileUpload" type="file" accept="image/*"/> -->
+                                <a id="upload-btn" class="btn btn-file btn-medium hoverable">
+                                    <i class="material-icons left">cloud_upload</i>
+                                    Browse<input id="fileUpload" type="file" accept="image/*">
+                                </a>
                             </div> 
 
-                            <div>
-                                <button id="analyze" onclick="analyze()">Analyze</button>
+                            <div class="analyze-wrapper">
+                                <a id="analyze-btn" class="hoverable btn btn-medium scale-transition scale-out" onclick="analyze()">
+                                    <strong>Analyze</strong>
+                                  </a>
+                                <br>
+                                <a id="download-btn" class="hoverable btn btn-medium scale-transition scale-out">
+                                    <i class="material-icons left">file_download</i>
+                                    <strong>Result</strong>
+                                  </a>
                             </div> 
                             
                             
