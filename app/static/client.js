@@ -32,7 +32,8 @@ function showPicked(input) {
 }
 
 function analyze() {
-    
+    const analyzeBtn = document.getElementById("analyze-btn");
+
     var uploadFiles = el("fileUpload").files;
     if (uploadFiles.length !== 1) alert("Please select a file to analyze!");
 
@@ -47,7 +48,9 @@ function analyze() {
     
     xhr.open("POST", `${loc.protocol}//${loc.hostname}:${loc.port}/analyze`,true);
     
-    xhr.onprogress = () => {
+    xhr.onloadstart = () => {
+        analyzeBtn.innerHTML = "<strong>Analyzing...</strong>";
+
         let logo = document.getElementById("logo");
         logo.classList.add("rtt");
 
@@ -64,15 +67,15 @@ function analyze() {
     xhr.onload = function(e) {
         
         const resultImage = document.getElementById("result");
-        const download_btn = document.getElementById("download-wrapper");
-
+        const download_btn = document.getElementById("download-btn");
+        
         response = JSON.parse(e.target.responseText);
         // console.log(response);
 
         const file = response["new_img"];
-        console.log(file)
+        // console.log(file)
         
-        setTimeout(()=>{
+        // setTimeout(()=>{
             let logo = document.getElementById("logo");
             logo.classList.remove("rtt");
 
@@ -87,11 +90,18 @@ function analyze() {
             download_btn.setAttribute('href', file);
             download_btn.setAttribute('download', response["filename"]);
             
+            analyzeBtn.innerHTML = "<strong>Analyze</strong>";
+            analyzeBtn.classList.remove("scale-in");
+            analyzeBtn.classList.add("scale-out");
+
+            download_btn.classList.remove("scale-out");
+            download_btn.classList.add("scale-in");
+            
             // document.body.appendChild(download_btn);
             // download_btn.click();
             // document.body.removeChild(download_btn);
 
-        }, 3000);        
+        // }, 3000);        
     }
 
     // xhr.onload = function (e) {
@@ -167,15 +177,9 @@ async function myAnimation()
                 preloader.style.display = "none";
                 logo.classList.toggle("rtt");
                 resolve();
-            }, 1000);
+            }, 500);
         });
     })(); 
-}
-
-function download()
-{
-    let file = el("result").files[0];
-
 }
 
 const fileUpload = document.getElementById("fileUpload");
@@ -186,6 +190,10 @@ fileUpload.addEventListener("change", function () {
         
         const previewImage = document.getElementById("upload");
         const resultImage = document.getElementById("result");
+        const analyzeBtn = document.getElementById("analyze-btn");
+        const download_btn = document.getElementById("download-btn");
+
+        
         
         const file = this.files[0];
         console.log("uploaded file: " + file);
@@ -193,12 +201,18 @@ fileUpload.addEventListener("change", function () {
 
         if (file) {
             const reader = new FileReader();
-            
+            download_btn.classList.remove("scale-in");
+            download_btn.classList.add("scale-out");
             previewImage.style.display = "block";
 
             reader.addEventListener("load", function () {
                 previewImage.setAttribute("src", this.result);
                 resultImage.setAttribute("src", "../static/placeholder-image.png");
+                
+                
+                
+                analyzeBtn.classList.remove("scale-out");
+                analyzeBtn.classList.add("scale-in");
             });
 
             reader.readAsDataURL(file);

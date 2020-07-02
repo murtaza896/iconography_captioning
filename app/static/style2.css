@@ -9,6 +9,10 @@ body {
     overflow-y: hidden;
 }
 
+h3 {
+    margin: 0 0 0.5vh 0 !important;
+}
+
 .row { 
     margin-bottom: 0px !important;
     /* z-index: 2;
@@ -52,7 +56,7 @@ body {
 }
 
 .logo {
-    width: 30% !important;
+    width: 40% !important;
 }
 
 .rtt {
@@ -71,8 +75,12 @@ body {
   
 .git_logo {
     width: 10% !important;
+    margin-right: 0.5vw;
 }
 
+.logo-wrapper {
+    padding-top: 3vh;
+}
 
 .card .card-action a {
     text-transform: lowercase !important;
@@ -123,3 +131,49 @@ body {
     /* background-color: rgb(242, 242, 246) !important; */
 }
 
+.analyze-wrapper {
+    margin-top: 5vh;   
+}
+
+.upload-wrapper {
+    margin-top: 5vh;
+}
+
+.btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+
+#analyze-btn {
+    background-color: #1E81CE;
+    /* z-index: 1;
+    position: absolute;
+    justify-content: center; */
+}
+
+
+#download-btn {
+    background-color: #FFFFFF;
+    color: #1E81CE;
+}
+
+#upload-btn {
+    background-color: #1E81CE;
+    color: #FFFFFF;
+}
